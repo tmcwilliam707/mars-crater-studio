@@ -23,6 +23,7 @@ ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend, CategoryScale, 
 const App = () => {
   const containerRef = useRef(null);
   const bannerRef = useRef(null);
+  const spotlightRef = useRef(null);
   const [diameterChartData, setDiameterChartData] = useState(null);
   const [depthChartData, setDepthChartData] = useState(null);
   const [barChartData, setBarChartData] = useState(null);
@@ -32,7 +33,8 @@ const App = () => {
   useEffect(() => {
     const container = containerRef.current;
     const banner = bannerRef.current;
-    if (!container || !banner) return;
+    const spotlight = spotlightRef.current;
+    if (!container || !banner || !spotlight) return;
 
     // Three.js Scene Setup
     const scene = new THREE.Scene();
@@ -185,6 +187,22 @@ const App = () => {
       .catch(err => setError(`Fetch error: ${err.message}`));
   }, []);
 
+  useEffect(() => {
+    const spotlight = spotlightRef.current;
+    if (!spotlight) return;
+
+    const handleMouseMove = (e) => {
+      spotlight.style.left = `${e.pageX - spotlight.offsetWidth / 2}px`;
+      spotlight.style.top = `${e.pageY - spotlight.offsetHeight / 2}px`;
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
   const chartOptions = {
     responsive: true,
     plugins: {
@@ -314,6 +332,31 @@ const App = () => {
           </tbody>
         </table>
       </div>
+      <div className="additional-info">
+        <h3>Mapping to Mars Regions</h3>
+        <p>### lat-30_lon060.pgm (-30° to 0°, 60°E to 120°E)</p>
+        <ul>
+          <li><strong>Region</strong>: Spans parts of Arabia Terra (northern) and Terra Sabaea (southern).</li>
+          <li><strong>Description</strong>: Arabia Terra is a heavily cratered highland in the northern hemisphere, transitioning to Terra Sabaea’s rugged terrain in the south. Includes features like Schiaparelli Crater (~460 km diameter, ~2°S, 17°E, just west of the tile).</li>
+          <li><strong>Label</strong>: "Arabia Terra - Terra Sabaea".</li>
+        </ul>
+        <p>### lat30_lon000.pgm (30°N to 60°N, 0°E to 60°E)</p>
+        <ul>
+          <li><strong>Region</strong>: Covers parts of Acidalia Planitia (lower) and Utopia Planitia (upper).</li>
+          <li><strong>Description</strong>: Acidalia Planitia is a vast northern plain with fewer craters, while Utopia Planitia (site of Viking 2 landing) has moderate cratering and volcanic features.</li>
+          <li><strong>Label</strong>: "Acidalia Planitia - Utopia Planitia".</li>
+        </ul>
+        <p>### lat30_lon300.pgm (30°N to 60°N, 300°E to 360°E)</p>
+        <ul>
+          <li><strong>Region</strong>: Encompasses parts of Arcadia Planitia and Tharsis Montes (western edge).</li>
+          <li><strong>Description</strong>: Arcadia Planitia is a smooth northern plain with some craters, adjacent to the Tharsis volcanic region (e.g., Alba Mons near 40°N, 250°E, just outside).</li>
+          <li><strong>Label</strong>: "Arcadia Planitia - Tharsis Border".</li>
+        </ul>
+      </div>
+      <div className="image-container">
+        <img src="/themis_lat30_lon300_detection-2.png" alt="Detection Image" />
+      </div>
+      <div ref={spotlightRef} className="spotlight"></div>
     </div>
   );
 };

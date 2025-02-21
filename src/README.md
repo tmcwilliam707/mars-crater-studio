@@ -165,6 +165,33 @@ loader.load('/crater.glb', (gltf) => {
 - **Missing Tools**: Ensure `obj2gltf` and `gltf-pipeline` are in your PATH.
 - **Texture Errors**: Verify `banner.jpg` exists in `frontend/public/images/`.
 
+
+
+
+## Mapping to Mars Regions
+
+Using Mars’ major geographic features (based on USGS maps and THEMIS documentation):
+
+### lat-30_lon060.pgm (-30° to 0°, 60°E to 120°E)
+- **Region**: Spans parts of Arabia Terra (northern) and Terra Sabaea (southern).
+- **Description**: Arabia Terra is a heavily cratered highland in the northern hemisphere, transitioning to Terra Sabaea’s rugged terrain in the south. Includes features like Schiaparelli Crater (~460 km diameter, ~2°S, 17°E, just west of the tile).
+- **Label**: "Arabia Terra - Terra Sabaea".
+
+### lat30_lon000.pgm (30°N to 60°N, 0°E to 60°E)
+- **Region**: Covers parts of Acidalia Planitia (lower) and Utopia Planitia (upper).
+- **Description**: Acidalia Planitia is a vast northern plain with fewer craters, while Utopia Planitia (site of Viking 2 landing) has moderate cratering and volcanic features.
+- **Label**: "Acidalia Planitia - Utopia Planitia".
+
+### lat30_lon300.pgm (30°N to 60°N, 300°E to 360°E)
+- **Region**: Encompasses parts of Arcadia Planitia and Tharsis Montes (western edge).
+- **Description**: Arcadia Planitia is a smooth northern plain with some craters, adjacent to the Tharsis volcanic region (e.g., Alba Mons near 40°N, 250°E, just outside).
+- **Label**: "Arcadia Planitia - Tharsis Border".
 ## License
+
+
+
+
+
+
 
 MIT License.

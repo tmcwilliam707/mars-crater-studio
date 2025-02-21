@@ -37,7 +37,7 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However, we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
 ## Learn More
 
@@ -68,3 +68,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Mapping to Mars Regions
+
+Using Mars’ major geographic features (based on USGS maps and THEMIS documentation):
+
+### lat-30_lon060.pgm (-30° to 0°, 60°E to 120°E)
+- **Region**: Spans parts of Arabia Terra (northern) and Terra Sabaea (southern).
+- **Description**: Arabia Terra is a heavily cratered highland in the northern hemisphere, transitioning to Terra Sabaea’s rugged terrain in the south. Includes features like Schiaparelli Crater (~460 km diameter, ~2°S, 17°E, just west of the tile).
+- **Label**: "Arabia Terra - Terra Sabaea".
+
+### lat30_lon000.pgm (30°N to 60°N, 0°E to 60°E)
+- **Region**: Covers parts of Acidalia Planitia (lower) and Utopia Planitia (upper).
+- **Description**: Acidalia Planitia is a vast northern plain with fewer craters, while Utopia Planitia (site of Viking 2 landing) has moderate cratering and volcanic features.
+- **Label**: "Acidalia Planitia - Utopia Planitia".
+
+### lat30_lon300.pgm (30°N to 60°N, 300°E to 360°E)
+- **Region**: Encompasses parts of Arcadia Planitia and Tharsis Montes (western edge).
+- **Description**: Arcadia Planitia is a smooth northern plain with some craters, adjacent to the Tharsis volcanic region (e.g., Alba Mons near 40°N, 250°E, just outside).
+- **Label**: "Arcadia Planitia - Tharsis Border".
