@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { PolarArea } from 'react-chartjs-2';
+import { PolarArea, Bar } from 'react-chartjs-2';
 import Papa from 'papaparse';
 import gsap from 'gsap';
 import {
@@ -10,17 +10,23 @@ import {
   ArcElement,
   Tooltip,
   Legend,
+  CategoryScale,
+  LinearScale,
+  BarElement,
 } from 'chart.js';
 import './CraterScene.css';
+import './App.css';
 
 // Register Chart.js components
-ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
+ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 
 const App = () => {
   const containerRef = useRef(null);
   const bannerRef = useRef(null);
   const [diameterChartData, setDiameterChartData] = useState(null);
   const [depthChartData, setDepthChartData] = useState(null);
+  const [barChartData, setBarChartData] = useState(null);
+  const [tableData, setTableData] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -38,7 +44,7 @@ const App = () => {
 
     const textureLoader = new THREE.TextureLoader();
     textureLoader.load(
-      '/images/banner.jpg',
+      '/images/banner.jpg', // Correct background image for banner
       (texture) => {
         scene.background = texture;
       },
@@ -102,6 +108,20 @@ const App = () => {
             const medianDepth = parseFloat(data.median_depth_km);
             const minDepth = parseFloat(data.min_depth_km);
             const maxDepth = parseFloat(data.max_depth_km);
+            const meanCircularity = parseFloat(data.mean_circularity);
+
+            // Set table data
+            setTableData([
+              { label: 'Mean Diameter (km)', value: meanDiameter },
+              { label: 'Median Diameter (km)', value: medianDiameter },
+              { label: 'Min Diameter (km)', value: minDiameter },
+              { label: 'Max Diameter (km)', value: maxDiameter },
+              { label: 'Mean Depth (km)', value: meanDepth },
+              { label: 'Median Depth (km)', value: medianDepth },
+              { label: 'Min Depth (km)', value: minDepth },
+              { label: 'Max Depth (km)', value: maxDepth },
+              { label: 'Mean Circularity', value: meanCircularity },
+            ]);
 
             // Chart data for diameter visualization
             setDiameterChartData({
@@ -146,26 +166,23 @@ const App = () => {
                 borderWidth: 1,
               }],
             });
+
+            // Chart data for all statistics visualization
+            setBarChartData({
+              labels: ['Mean Diameter (km)', 'Median Diameter (km)', 'Min Diameter (km)', 'Max Diameter (km)', 'Mean Depth (km)', 'Median Depth (km)', 'Min Depth (km)', 'Max Depth (km)', 'Mean Circularity'],
+              datasets: [{
+                label: 'Statistics',
+                data: [meanDiameter, medianDiameter, minDiameter, maxDiameter, meanDepth, medianDepth, minDepth, maxDepth, meanCircularity],
+                backgroundColor: 'rgba(0, 255, 255, 0.2)',
+                borderColor: 'rgba(0, 255, 255, 1)',
+                borderWidth: 1,
+              }],
+            });
           },
           error: (err) => setError(`CSV parsing error: ${err.message}`),
         });
       })
       .catch(err => setError(`Fetch error: ${err.message}`));
-
-    // Resize handler
-    const handleResize = () => {
-      camera.aspect = banner.clientWidth / banner.clientHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(banner.clientWidth, banner.clientHeight);
-    };
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      if (banner.contains(renderer.domElement)) {
-        banner.removeChild(renderer.domElement);
-      }
-    };
   }, []);
 
   const chartOptions = {
@@ -191,15 +208,63 @@ const App = () => {
         },
         pointLabels: {
           color: '#FFD700', // Gold color
+          font: {
+            size: 18, // Increase the font size for point labels
+          },
+        },
+        ticks: {
+          font: {
+            size: 16, // Increase the font size for ticks
+          },
         },
       },
     },
-    maintainAspectRatio: true, // Ensure the charts maintain their aspect ratio
+    maintainAspectRatio: false, // Allow the charts to take up more space
+  };
+
+  const barChartOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+        labels: { color: '#FFD700' },  // Gold text
+      },
+      tooltip: {
+        backgroundColor: 'rgba(139, 69, 19, 0.8)',
+        titleColor: '#FFD700',
+        bodyColor: '#FFD700',
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: '#FFD700', // Gold color
+          font: {
+            size: 16, // Increase the font size for x-axis ticks
+          },
+        },
+        grid: {
+          color: 'rgba(255, 215, 0, 0.2)', // Gold color
+        },
+      },
+      y: {
+        ticks: {
+          color: '#FFD700', // Gold color
+          font: {
+            size: 16, // Increase the font size for y-axis ticks
+          },
+        },
+        grid: {
+          color: 'rgba(255, 215, 0, 0.2)', // Gold color
+        },
+      },
+    },
+    maintainAspectRatio: false, // Allow the charts to take up more space
   };
 
   return (
     <div ref={containerRef} className="crater-scene-container">
-      <div ref={bannerRef} className="banner">
+      <div ref={bannerRef} className="banner" style={{ backgroundImage: "url('/images/banner.jpg')" }}>
         <div className="title-overlay">MARS CRATER STUDIO</div>
       </div>
       <div className="link-container">
@@ -211,13 +276,16 @@ const App = () => {
           Error: {error}
         </div>
       )}
-      {diameterChartData && depthChartData ? (
-        <div className="chart-overlay spinning-chart">
+      {diameterChartData && depthChartData && barChartData ? (
+        <div className="chart-overlay">
           <div className="chart-container">
             <PolarArea data={diameterChartData} options={chartOptions} />
           </div>
           <div className="chart-container">
             <PolarArea data={depthChartData} options={chartOptions} />
+          </div>
+          <div className="chart-container">
+            <Bar data={barChartData} options={barChartOptions} />
           </div>
         </div>
       ) : !error && (
@@ -225,6 +293,27 @@ const App = () => {
           Loading crater data...
         </div>
       )}
+      <div className="content" style={{ backgroundImage: "url('/images/starry.jpg')" }}>
+        <p>Explore the fascinating world of Mars craters with detailed statistics and visualizations.</p>
+      </div>
+      <div className="data-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Statistic</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData.map((row, index) => (
+              <tr key={index}>
+                <td>{row.label}</td>
+                <td>{row.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

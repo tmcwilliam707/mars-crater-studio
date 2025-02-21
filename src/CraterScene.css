@@ -33,9 +33,9 @@ canvas {
 
 .chart-overlay {
   position: relative;
-  width: 80%; /* Make the charts wider */
-  max-width: 800px; /* Limit the maximum width */
-  height: 80vh; /* Set a fixed height */
+  width: 100%; /* Make the charts wider */
+  max-width: 1600px; /* Limit the maximum width */
+  height: 100vh; /* Set a fixed height */
   margin: 0 auto; /* Center the charts */
   background: rgba(50, 50, 50, 0.7);
   padding: 20px;
@@ -51,6 +51,8 @@ canvas {
 .chart-container {
   flex: 1; /* Allow the chart container to grow */
   margin-bottom: 96px; /* Add an inch (96px) space between charts */
+  overflow: hidden; /* Hide the internal scroll bar */
+  height: 100%; /* Make the chart container take up the full height */
 }
 
 .link-container {
@@ -80,7 +82,7 @@ canvas {
   top: 10px;
   right: 10px;
   font-size: 0.8em;
-  color: #db0b0b; /* Gold color */
+  color: #f7f2f2; /* Gold color */
 }
 
 .error-message {
@@ -121,7 +123,7 @@ canvas {
 }
 
 .spinning-chart {
-  animation: spin 10s ;
+  animation: spin 10s linear infinite;
 }
 
 @keyframes spin {
@@ -132,3 +134,4 @@ canvas {
     transform: rotate(360deg);
   }
 }
+

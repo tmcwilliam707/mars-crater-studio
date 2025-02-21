@@ -26,22 +26,25 @@
         padding: 20px;
         text-align: center;
         background-color: #000;
-        color: #fff;
+        color: #f6f3f3;
       }
-      .header h1, .title-overlay {
+      .header h1 {
         font-family: 'CustomFont', 'Orbitron', sans-serif;
         font-size: 3em; /* Smaller title */
         margin: 0;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       }
       .header h2 {
         font-family: 'CustomFont', 'Orbitron', sans-serif;
         font-size: 1.5em; /* Smaller subtitle */
         margin: 0;
+        color: white; /* White color for the subtitle */
+      }
+      .header h2 .red-word {
+        color: #FF0000; /* Red color for the word "RED" */
       }
       .small-title {
         font-size: 0.8em;
-        color: #db0b0b; /* Gold color */
+        color: #FFD700; /* Gold color */
         margin-top: 5px;
       }
       .banner {
@@ -67,6 +70,9 @@
         transform: translate(-50%, -50%);
         z-index: 2; /* Ensure the title is on top of the banner */
         color: white;
+        font-family: 'CustomFont', 'Orbitron', sans-serif;
+        font-size: 3em; /* Match the smaller title size */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         width: 100%;
         text-align: center;
       }
@@ -109,7 +115,7 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div class="header">
       <h1></h1>
-      <h2>Unveiling the Red Planet's Secrets</h2>
+      <h2>Unveiling the <span class="red-word">RED</span> Planet's Secrets</h2>
       <div class="small-title"></div>
     </div>
     <div class="banner">
@@ -120,7 +126,7 @@
       </div>
     </div>
     <div class="content">
-      <p>Welcome to the Mars Crater Studio, a cutting-edge project that transforms raw hyperspectral imagery from Mars into interactive 3D models and detailed crater analyses. Using data from THEMIS (Thermal Emission Imaging System), this initiative converts massive PGM files into optimized 3D terrain models (OBJ and GLB formats) for web visualization, while also detecting and analyzing Martian craters with advanced statistical tools. Whether you're a scientist, educator, or space enthusiast, explore our hosted 3D models on Clooned, download crater datasets, or dive into the code to uncover the geological stories etched into Mars’ surface—all powered by open-source technology and a passion for discovery.</p>
+      <p>Welcome to the Mars Crater Explorer, a cutting-edge project that transforms raw hyperspectral imagery from Mars into interactive 3D models and detailed crater analyses. Using data from THEMIS (Thermal Emission Imaging System), this initiative converts massive PGM files into optimized 3D terrain models (OBJ and GLB formats) for web visualization, while also detecting and analyzing Martian craters with advanced statistical tools. Whether you're a scientist, educator, or space enthusiast, explore our hosted 3D models on Clooned, download crater datasets, or dive into the code to uncover the geological stories etched into Mars’ surface—all powered by open-source technology and a passion for discovery.</p>
     </div>
     <div id="root" style="width: 100vw; height: 80vh;"></div>
   </body>
