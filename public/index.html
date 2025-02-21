@@ -53,7 +53,8 @@
         position: relative;
         text-align: center;
         background-image: url('/textures/mars.jpg'); /* Replace with your banner image path */
-        background-size: cover;
+        background-size: contain;
+        background-repeat: no-repeat;
         background-position: center;
         display: flex;
         align-items: center;
@@ -109,6 +110,27 @@
         font-size: 1.2em;
         margin: 10px 0 0;
       }
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 2em; /* Smaller title for mobile */
+        }
+        .header h2 {
+          font-size: 1.2em; /* Smaller subtitle for mobile */
+        }
+        .title-overlay {
+          font-size: 2em; /* Smaller title size for mobile */
+        }
+        .banner {
+          height: 15vh; /* Smaller height for mobile */
+        }
+        .link-container button {
+          font-size: 0.8em; /* Smaller button text for mobile */
+          padding: 8px 16px; /* Smaller button padding for mobile */
+        }
+        .content p {
+          font-size: 1em; /* Smaller paragraph text for mobile */
+        }
+      }
     </style>
   </head>
   <body>
@@ -126,7 +148,7 @@
       </div>
     </div>
     <div class="content">
-      <p>Welcome to the Mars Crater Studio, a cutting-edge project that transforms raw hyperspectral imagery from Mars into interactive 3D models and detailed crater analyses. Using data from THEMIS (Thermal Emission Imaging System), this initiative converts massive PGM files into optimized 3D terrain models (OBJ and GLB formats) for web visualization, while also detecting and analyzing Martian craters with advanced statistical tools. Whether you're a scientist, educator, or space enthusiast, explore our hosted 3D models on Clooned, download crater datasets, or dive into the code to uncover the geological stories etched into Mars’ surface—all powered by open-source technology and a passion for discovery.</p>
+      <p>Welcome to the Mars Crater Explorer, a cutting-edge project that transforms raw hyperspectral imagery from Mars into interactive 3D models and detailed crater analyses. Using data from THEMIS (Thermal Emission Imaging System), this initiative converts massive PGM files into optimized 3D terrain models (OBJ and GLB formats) for web visualization, while also detecting and analyzing Martian craters with advanced statistical tools. Whether you're a scientist, educator, or space enthusiast, explore our hosted 3D models on Clooned, download crater datasets, or dive into the code to uncover the geological stories etched into Mars’ surface—all powered by open-source technology and a passion for discovery.</p>
     </div>
     <div id="root" style="width: 100vw; height: 80vh;"></div>
   </body>
