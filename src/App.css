@@ -53,3 +53,11 @@
 .data-table tr:nth-child(odd) {
   background: rgba(50, 50, 50, 0.3);
 }
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #000; /* Optional: Add a background color */
+  color: #FFD700; /* Gold color */
+  margin-top: 20px; /* Add some space above the footer */
+}

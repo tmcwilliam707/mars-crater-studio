@@ -357,6 +357,9 @@ const App = () => {
         <img src="/themis_lat30_lon300_detection-2.png" alt="Detection Image" />
       </div>
       <div ref={spotlightRef} className="spotlight"></div>
+      <div className="footer">
+        <p>&copy; MARS CRATER STUDIO 2025</p>
+      </div>
     </div>
   );
 };
