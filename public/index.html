@@ -52,6 +52,13 @@
         color: #FFD700; /* Gold color */
         margin-top: 5px;
       }
+      .small-title a {
+        color: #ff0000; /* Gold color for the link */
+        text-decoration: none; /* Remove underline */
+      }
+      .small-title a:hover {
+        text-decoration: underline; /* Add underline on hover */
+      }
       .banner {
         width: 100vw;
         height: 30vh; /* Increase height for larger image */
@@ -130,6 +137,16 @@
         backdrop-filter: blur(10px); /* Add blur effect */
         -webkit-backdrop-filter: blur(10px); /* Add blur effect for Safari */
       }
+      .spotlight {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        pointer-events: none;
+        mix-blend-mode: overlay;
+        z-index: 4; /* Ensure the spotlight is on top of other elements */
+      }
       @media (max-width: 768px) {
         .header h1 {
           font-size: 2em; /* Smaller title for mobile */
@@ -159,7 +176,7 @@
     <div class="header">
       <h1></h1>
       <h2>Unveiling the <span class="red-word">RED</span> Planet's Secrets</h2>
-      <div class="small-title">Taylor McWilliam circa 2025</div>
+      <div class="small-title"><a href="https://www.linkedin.com/in/taylormcwilliam/" target="_blank">Taylor McWilliam circa 2025</a></div>
     </div>
     <div class="banner">
       <div class="title-overlay"></div>
@@ -172,5 +189,13 @@
       <p>Welcome to the Mars Crater Explorer, a cutting-edge project that transforms raw hyperspectral imagery from Mars into interactive 3D models and detailed crater analyses. Using data from THEMIS (Thermal Emission Imaging System), this initiative converts massive PGM files into optimized 3D terrain models (OBJ and GLB formats) for web visualization, while also detecting and analyzing Martian craters with advanced statistical tools. Whether you're a scientist, educator, or space enthusiast, explore our hosted 3D models on Clooned, download crater datasets, or dive into the code to uncover the geological stories etched into Mars’ surface—all powered by open-source technology and a passion for discovery.</p>
     </div>
     <div id="root" style="width: 100vw; height: 80vh;"></div>
+    <div class="spotlight" id="spotlight"></div>
+    <script>
+      document.addEventListener('mousemove', function(e) {
+        const spotlight = document.getElementById('spotlight');
+        spotlight.style.left = `${e.pageX - spotlight.offsetWidth / 2}px`;
+        spotlight.style.top = `${e.pageY - spotlight.offsetHeight / 2}px`;
+      });
+    </script>
   </body>
 </html>
