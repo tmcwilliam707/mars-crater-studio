@@ -128,11 +128,11 @@
         font-family: 'Roboto', sans-serif; /* More readable futuristic font */
       }
       .content p {
-        font-size: 1.5em; /* Increase font size */
-        line-height: 1.6; /* Increase line height */
+        font-size: 1.2em; /* Decrease font size */
+        line-height: 1.4; /* Adjust line height */
         margin: 20px 0; /* Add more margin */
         background: rgba(0, 0, 0, 0.5); /* Add semi-transparent background */
-        padding: 20px; /* Add padding */
+        padding: 15px; /* Reduce padding */
         border-radius: 10px; /* Add border radius */
         backdrop-filter: blur(10px); /* Add blur effect */
         -webkit-backdrop-filter: blur(10px); /* Add blur effect for Safari */
@@ -165,7 +165,7 @@
           padding: 8px 16px; /* Smaller button padding for mobile */
         }
         .content p {
-          font-size: 1.2em; /* Smaller paragraph text for mobile */
+          font-size: 1em; /* Smaller paragraph text for mobile */
           padding: 10px; /* Reduce padding for mobile */
         }
       }
@@ -190,6 +190,30 @@
     </div>
     <div id="root" style="width: 100vw; height: 80vh;"></div>
     <div class="spotlight" id="spotlight"></div>
+    <div class="additional-info">
+      <h3>Mapping to Mars Regions</h3>
+      <p>### lat-30_lon060.pgm (-30° to 0°, 60°E to 120°E)</p>
+      <ul>
+        <li><strong>Region</strong>: Spans parts of Arabia Terra (northern) and Terra Sabaea (southern).</li>
+        <li><strong>Description</strong>: Arabia Terra is a heavily cratered highland in the northern hemisphere, transitioning to Terra Sabaea’s rugged terrain in the south. Includes features like Schiaparelli Crater (~460 km diameter, ~2°S, 17°E, just west of the tile).</li>
+        <li><strong>Label</strong>: "Arabia Terra - Terra Sabaea".</li>
+      </ul>
+      <p>### lat30_lon000.pgm (30°N to 60°N, 0°E to 60°E)</p>
+      <ul>
+        <li><strong>Region</strong>: Covers parts of Acidalia Planitia (lower) and Utopia Planitia (upper).</li>
+        <li><strong>Description</strong>: Acidalia Planitia is a vast northern plain with fewer craters, while Utopia Planitia (site of Viking 2 landing) has moderate cratering and volcanic features.</li>
+        <li><strong>Label</strong>: "Acidalia Planitia - Utopia Planitia".</li>
+      </ul>
+      <p>### lat30_lon300.pgm (30°N to 60°N, 300°E to 360°E)</p>
+      <ul>
+        <li><strong>Region</strong>: Encompasses parts of Arcadia Planitia and Tharsis Montes (western edge).</li>
+        <li><strong>Description</strong>: Arcadia Planitia is a smooth northern plain with some craters, adjacent to the Tharsis volcanic region (e.g., Alba Mons near 40°N, 250°E, just outside).</li>
+        <li><strong>Label</strong>: "Arcadia Planitia - Tharsis Border".</li>
+      </ul>
+    </div>
+    <div class="footer">
+      <p>&copy; MARS CRATER STUDIO 2025</p>
+    </div>
     <script>
       document.addEventListener('mousemove', function(e) {
         const spotlight = document.getElementById('spotlight');
