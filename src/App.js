@@ -270,7 +270,7 @@ const App = () => {
       <div className="link-container">
         <button onClick={() => window.location.href='https://github.com/tmcwilliam707/mars-crater-studio'}>Link to Dataset</button>
       </div>
-      <div className="small-title">Taylor McWilliam circa 2025</div>
+      <div className="small-title"></div>
       {error && (
         <div className="error-message">
           Error: {error}

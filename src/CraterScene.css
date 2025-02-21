@@ -111,15 +111,20 @@ canvas {
 .content {
   padding: 20px;
   text-align: center;
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(145deg, #000000, #434343); /* Shiny black background */
   color: white; /* Change text color to white */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
 }
 
 .content p {
-  font-size: 1.2em;
-  margin: 10px 0 0;
+  font-size: 1.5em; /* Increase font size to twice as big */
+  line-height: 1.6; /* Increase line height */
+  margin: 20px 0; /* Add more margin */
+  background: rgba(0, 0, 0, 0.5); /* Add semi-transparent background */
+  padding: 20px; /* Add padding */
+  border-radius: 10px; /* Add border radius */
+  backdrop-filter: blur(10px); /* Add blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Add blur effect for Safari */
 }
 
 .spinning-chart {
