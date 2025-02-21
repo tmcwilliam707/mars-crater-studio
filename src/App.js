@@ -54,6 +54,7 @@ const App = () => {
     loader.load('/models/bb8_animated.glb', (gltf) => {
       const bb8 = gltf.scene;
       bb8.position.set(-5, 0, 0); // Start position off-screen
+      bb8.scale.set(4, 4, 4); // Scale BB-8 to be four times bigger
       scene.add(bb8);
 
       // Animate BB-8 across the banner
