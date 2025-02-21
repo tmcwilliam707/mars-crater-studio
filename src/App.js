@@ -264,7 +264,7 @@ const App = () => {
 
   return (
     <div ref={containerRef} className="crater-scene-container">
-      <div ref={bannerRef} className="banner" style={{ backgroundImage: "url('/images/banner.jpg')" }}>
+      <div ref={bannerRef} className="banner" style={{ backgroundImage: "url('/images/banner.jpg')", backgroundSize: "contains" }}>
         <div className="title-overlay">MARS CRATER STUDIO</div>
       </div>
       <div className="link-container">
