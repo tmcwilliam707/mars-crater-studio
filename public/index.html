@@ -147,6 +147,49 @@
         mix-blend-mode: overlay;
         z-index: 4; /* Ensure the spotlight is on top of other elements */
       }
+      .additional-info {
+        padding: 20px;
+        text-align: center;
+        background: transparent; /* Make background transparent */
+        color: white; /* Change text color to white */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
+        font-family: 'Roboto', sans-serif; /* More readable futuristic font */
+      }
+      .additional-info h3 {
+        font-size: 1.5em; /* Adjust font size */
+        margin: 20px 0; /* Add margin */
+      }
+      .additional-info p {
+        font-size: 1.2em; /* Adjust font size */
+        line-height: 1.4; /* Adjust line height */
+        margin: 20px 0; /* Add margin */
+        background: rgba(0, 0, 0, 0.5); /* Add semi-transparent background */
+        padding: 15px; /* Add padding */
+        border-radius: 10px; /* Add border radius */
+        backdrop-filter: blur(10px); /* Add blur effect */
+        -webkit-backdrop-filter: blur(10px); /* Add blur effect for Safari */
+      }
+      .additional-info ul {
+        list-style-type: none; /* Remove list style */
+        padding: 0; /* Remove padding */
+      }
+      .additional-info li {
+        font-size: 1em; /* Adjust font size */
+        line-height: 1.4; /* Adjust line height */
+        margin: 10px 0; /* Add margin */
+        background: rgba(0, 0, 0, 0.5); /* Add semi-transparent background */
+        padding: 10px; /* Add padding */
+        border-radius: 10px; /* Add border radius */
+        backdrop-filter: blur(10px); /* Add blur effect */
+        -webkit-backdrop-filter: blur(10px); /* Add blur effect for Safari */
+      }
+      .footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #000; /* Optional: Add a background color */
+        color: #FFD700; /* Gold color */
+        margin-top: 20px; /* Add some space above the footer */
+      }
       @media (max-width: 768px) {
         .header h1 {
           font-size: 2em; /* Smaller title for mobile */
@@ -168,13 +211,24 @@
           font-size: 1em; /* Smaller paragraph text for mobile */
           padding: 10px; /* Reduce padding for mobile */
         }
+        .additional-info h3 {
+          font-size: 1.2em; /* Adjust font size for mobile */
+        }
+        .additional-info p {
+          font-size: 1em; /* Adjust font size for mobile */
+          padding: 10px; /* Adjust padding for mobile */
+        }
+        .additional-info li {
+          font-size: 0.9em; /* Adjust font size for mobile */
+          padding: 8px; /* Adjust padding for mobile */
+        }
       }
     </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div class="header">
-      <h1></h1>
+      <h1>MARS CRATER STUDIO</h1>
       <h2>Unveiling the <span class="red-word">RED</span> Planet's Secrets</h2>
       <div class="small-title"><a href="https://www.linkedin.com/in/taylormcwilliam/" target="_blank">Taylor McWilliam circa 2025</a></div>
     </div>

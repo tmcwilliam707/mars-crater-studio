@@ -12,6 +12,14 @@ body, html {
   height: 100%;
 }
 
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #000; /* Optional: Add a background color */
+  color: #0c0c0b; /* Gold color */
+  margin-top: 20px; /* Add some space above the footer */
+}
+
 canvas {
   width: 100%;
   height: 100%;
@@ -109,15 +117,17 @@ canvas {
 }
 
 .content {
-  padding: 20px;
+  padding: 40px;
+  font-size: 2.1em; /* Increase font size */
   text-align: center;
+
   background: linear-gradient(145deg, #000000, #434343); /* Shiny black background */
   color: white; /* Change text color to white */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
 }
 
 .content p {
-  font-size: 1.5em; /* Increase font size to twice as big */
+  font-size: 3.5em; /* Increase font size to twice as big */
   line-height: 1.6; /* Increase line height */
   margin: 20px 0; /* Add more margin */
   background: rgba(0, 0, 0, 0.5); /* Add semi-transparent background */
