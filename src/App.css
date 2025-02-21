@@ -61,3 +61,22 @@
   color: #FFD700; /* Gold color */
   margin-top: 20px; /* Add some space above the footer */
 }
+
+.content {
+  padding: 15px; /* Reduce padding */
+  text-align: center;
+  background: rgb(1, 1, 1); /* Add semi-transparent background */
+  color: white; /* Change text color to white */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
+  font-family: 'Futura', sans-serif; /* More readable futuristic font */
+  margin: 20px auto; /* Center the content */
+  max-width: 90%; /* Limit the width */
+  border-radius: 15px; /* Add border radius */
+}
+
+.content p {
+  font-size: 2em; /* Decrease font size */
+  line-height: 1.4; /* Adjust line height */
+  margin: 10px 0; /* Adjust margin */
+  padding: 10px; /* Reduce padding */
+}
