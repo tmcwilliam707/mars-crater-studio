@@ -171,17 +171,20 @@ const App = () => {
 
   return (
     <div ref={containerRef} className="crater-scene-container">
-      <div ref={bannerRef} className="banner"></div>
+      <div ref={bannerRef} className="banner">
+        <div className="title-overlay">MARS CRATER STUDIO</div>
+      </div>
       <div className="link-container">
         <button onClick={() => window.location.href='https://github.com/tmcwilliam707/mars-crater-studio'}>Link to Dataset</button>
       </div>
+      <div className="small-title">Taylor McWilliam circa 2025</div>
       {error && (
         <div className="error-message">
           Error: {error}
         </div>
       )}
       {chartData ? (
-        <div className="chart-overlay">
+        <div className="chart-overlay spinning-chart">
           <div className="chart-container">
             <PolarArea data={chartData} options={chartOptions} />
           </div>
