@@ -33,8 +33,9 @@ canvas {
 
 .chart-overlay {
   position: relative;
-  width: 50%; /* Make the charts narrower */
-  max-width: 600px; /* Limit the maximum width */
+  width: 80%; /* Make the charts wider */
+  max-width: 800px; /* Limit the maximum width */
+  height: 80vh; /* Set a fixed height */
   margin: 0 auto; /* Center the charts */
   background: rgba(50, 50, 50, 0.7);
   padding: 20px;
@@ -48,6 +49,7 @@ canvas {
 }
 
 .chart-container {
+  flex: 1; /* Allow the chart container to grow */
   margin-bottom: 96px; /* Add an inch (96px) space between charts */
 }
 
@@ -119,7 +121,7 @@ canvas {
 }
 
 .spinning-chart {
-  animation: spin 10s;
+  animation: spin 10s ;
 }
 
 @keyframes spin {
