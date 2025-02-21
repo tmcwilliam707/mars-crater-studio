@@ -25,7 +25,9 @@
       .header {
         padding: 20px;
         text-align: center;
-        background-color: #000;
+        background-image: url('/images/starry.jpg'); /* Use starry.jpg as background */
+        background-size: cover;
+        background-position: center;
         color: #f6f3f3;
       }
       .header h1 {
@@ -99,7 +101,7 @@
       .content {
         padding: 20px;
         text-align: center;
-        background-image: url('/images/starry.jpg'); /* Replace with your paragraph background image path */
+        background-image: url('/images/starry.jpg'); /* Use starry.jpg as background */
         background-size: cover;
         background-position: center;
         color: white; /* Change text color to white */
@@ -107,8 +109,14 @@
         font-family: 'Roboto', sans-serif; /* More readable futuristic font */
       }
       .content p {
-        font-size: 1.2em;
-        margin: 10px 0 0;
+        font-size: 1.4em; /* Increase font size */
+        line-height: 1.6; /* Increase line height */
+        margin: 20px 0; /* Add more margin */
+        background: rgba(0, 0, 0, 0.5); /* Add semi-transparent background */
+        padding: 20px; /* Add padding */
+        border-radius: 10px; /* Add border radius */
+        backdrop-filter: blur(10px); /* Add blur effect */
+        -webkit-backdrop-filter: blur(10px); /* Add blur effect for Safari */
       }
       @media (max-width: 768px) {
         .header h1 {
@@ -128,7 +136,8 @@
           padding: 8px 16px; /* Smaller button padding for mobile */
         }
         .content p {
-          font-size: 1em; /* Smaller paragraph text for mobile */
+          font-size: 1.2em; /* Smaller paragraph text for mobile */
+          padding: 10px; /* Reduce padding for mobile */
         }
       }
     </style>
@@ -138,7 +147,7 @@
     <div class="header">
       <h1></h1>
       <h2>Unveiling the <span class="red-word">RED</span> Planet's Secrets</h2>
-      <div class="small-title"></div>
+      <div class="small-title">5</div>
     </div>
     <div class="banner">
       <div class="title-overlay"></div>
