@@ -9,6 +9,11 @@ import os
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor
 
+
+
+
+# I ended up just manually downloading pgm's  from website and uploading to kaggle but this is a good example of how to download them
+# from the website directly
 # Increase the maximum image size limit
 Image.MAX_IMAGE_PIXELS = None
 

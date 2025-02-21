@@ -19,7 +19,8 @@ ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 const App = () => {
   const containerRef = useRef(null);
   const bannerRef = useRef(null);
-  const [chartData, setChartData] = useState(null);
+  const [diameterChartData, setDiameterChartData] = useState(null);
+  const [depthChartData, setDepthChartData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -97,9 +98,13 @@ const App = () => {
             const medianDiameter = parseFloat(data.median_diameter_km);
             const minDiameter = parseFloat(data.min_diameter_km);
             const maxDiameter = parseFloat(data.max_diameter_km);
+            const meanDepth = parseFloat(data.mean_depth_km);
+            const medianDepth = parseFloat(data.median_depth_km);
+            const minDepth = parseFloat(data.min_depth_km);
+            const maxDepth = parseFloat(data.max_depth_km);
 
-            // Chart data for visualization
-            setChartData({
+            // Chart data for diameter visualization
+            setDiameterChartData({
               labels: ['Mean Diameter (km)', 'Median Diameter (km)', 'Min Diameter (km)', 'Max Diameter (km)'],
               datasets: [{
                 label: 'Diameter (km)',
@@ -115,6 +120,28 @@ const App = () => {
                   'rgba(54, 162, 235, 1)',
                   'rgba(255, 206, 86, 1)',
                   'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 1,
+              }],
+            });
+
+            // Chart data for depth visualization
+            setDepthChartData({
+              labels: ['Mean Depth (km)', 'Median Depth (km)', 'Min Depth (km)', 'Max Depth (km)'],
+              datasets: [{
+                label: 'Depth (km)',
+                data: [meanDepth, medianDepth, minDepth, maxDepth],
+                backgroundColor: [
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(255, 99, 132, 0.2)',
+                ],
+                borderColor: [
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(255, 99, 132, 1)',
                 ],
                 borderWidth: 1,
               }],
@@ -184,10 +211,13 @@ const App = () => {
           Error: {error}
         </div>
       )}
-      {chartData ? (
+      {diameterChartData && depthChartData ? (
         <div className="chart-overlay spinning-chart">
           <div className="chart-container">
-            <PolarArea data={chartData} options={chartOptions} />
+            <PolarArea data={diameterChartData} options={chartOptions} />
+          </div>
+          <div className="chart-container">
+            <PolarArea data={depthChartData} options={chartOptions} />
           </div>
         </div>
       ) : !error && (
