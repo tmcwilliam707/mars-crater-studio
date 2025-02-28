@@ -63,15 +63,16 @@
 }
 
 .content {
-  padding: 10px; /* Reduce padding */
+  padding: 5px; /* Reduce padding to half */
   text-align: center;
   background: rgba(0, 0, 0, 0.5); /* Add semi-transparent background */
   color: white; /* Change text color to white */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
   font-family: 'Roboto', sans-serif; /* More readable futuristic font */
-  margin: 20px auto; /* Center the content */
-  max-width: 80%; /* Limit the width */
+  margin: 10px auto; /* Adjust margin to half */
+  max-width: 100%; /* Limit the width to half */
   border-radius: 10px; /* Add border radius */
+  height: 20%; /* Set the height to half */
 }
 
 .content p {
@@ -79,4 +80,8 @@
   line-height: 1.4; /* Adjust line height */
   margin: 10px 0; /* Adjust margin */
   padding: 10px; /* Reduce padding */
+}
+
+.welcome-text {
+  font-size: 0.5em; /* Adjust the font size to be half the original size */
 }
